@@ -3,34 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.lehm.dao;
+package com.lehm.service;
 
 import java.util.List;
-import java.util.Optional;
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import static com.lehm.dao.GenericDao.entityManager;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 
-/**
- *
- * @author Luis
- */
 @Local
-public interface Dao<T> {
-
-    
-
-    EntityManager getEntityManager();
-
-    Optional<T> get(long id);
+public interface Service<T> {
 
     List<T> getAll();
 
     void save(T t);
-
+    
     void update(T t);
 
-    void delete(T t);
+    void remove(Long id);
+
+    T getById(Long id);
+
 }

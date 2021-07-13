@@ -31,6 +31,7 @@ public class Domicilio implements Serializable {
     @Column(name = "no_calle")
     private String noCalle;
     private String pais;
+    
 
     public Long getIdDomicilio() {
         return idDomicilio;

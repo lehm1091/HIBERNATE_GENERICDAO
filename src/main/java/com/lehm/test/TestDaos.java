@@ -11,6 +11,7 @@ import com.lehm.dao.CursoDao;
 import com.lehm.dao.DomicilioDao;
 import java.util.List;
 import com.lehm.domain.*;
+import java.util.Optional;
 
 /**
  *
@@ -26,7 +27,7 @@ public class TestDaos {
         //aDao.save(alumno);
 
         DomicilioDao dDao = new DomicilioDao();
-       
+
         Domicilio domicilio = new Domicilio();
         /*domicilio.setCalle("primera calle");
         domicilio.setPais("El Salvador");
@@ -41,20 +42,27 @@ public class TestDaos {
         System.out.println(alumno);
         System.out.println(alumno.getDomicilio());
         CursoDao cDao = new CursoDao();
-       
+
         Curso curso = new Curso();
-        curso.setNombre("Matematicas");
-        curso.setPrecio(2.0);
-        //cDao.save(curso);
+        curso.setNombre("Ciencias");
+        curso.setPrecio(4.0);
+        cDao.save(curso);
         AsignacionDao asDao = new AsignacionDao();
-     
+
         Asignacion asignacion = new Asignacion();
         asignacion.setTurno("primer turno");
         asignacion.setAlumno(alumno);
         asignacion.setCurso(curso);
         //asDao.save(asignacion);
 
-        imprimir(aDao.getAll());
+        //imprimir(aDao.getAll());
+        System.out.println(
+                cDao.get(1)
+                        .map(Curso::getPrecio)
+                        .filter(p -> p >= 2)
+                        .isPresent());
+
+       aDao.delete(alumno);
     }
 
     private static void imprimir(List coleccion) {

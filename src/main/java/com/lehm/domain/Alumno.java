@@ -35,11 +35,11 @@ public class Alumno implements Serializable {
     private Long idAlumno;
 
     @JoinColumn(name = "id_domicilio", referencedColumnName = "id_domicilio")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Domicilio domicilio;
 
     @JoinColumn(name = "id_contacto", referencedColumnName = "id_contacto")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Contacto contacto;
     private String nombre;
     private String apellido;

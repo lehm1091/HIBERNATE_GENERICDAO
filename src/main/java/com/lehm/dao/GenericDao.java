@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -26,7 +28,8 @@ import javax.persistence.criteria.Root;
  *
  * @author Luis
  */
-public abstract class GenericDao<T> implements Dao<T> {
+
+public class GenericDao<T> implements Dao<T> {
 
     protected static EntityManager entityManager;
     private static EntityManagerFactory emf;

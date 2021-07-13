@@ -6,11 +6,15 @@
 package com.lehm.dao;
 
 import com.lehm.domain.*;
+import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 
 /**
  *
  * @author Luis
  */
+
+@Stateless
 public class AlumnoDao extends GenericDao<Alumno> {
 
 }
